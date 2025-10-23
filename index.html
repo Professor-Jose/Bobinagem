@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estúdio de Desenho de Bobinagem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Estúdio de Desenho de Bobinagem</h1>
+    </header>
+
+    <div class="container-principal">
+        <div class="painel" id="painel-controles">
+            <div class="grupo-form">
+                <label for="ranhuras">Ranhuras</label>
+                <input type="number" id="ranhuras" value="36">
+            </div>
+            <div class="grupo-form">
+                <label for="polos">Polaridade (para cálculos)</label>
+                <select id="polos">
+                    <option value="2">2 Polos</option>
+                    <option value="4">4 Polos</option>
+                    <option value="6" selected>6 Polos</option>
+                    <option value="8">8 Polos</option>
+                </select>
+            </div>
+            <div class="grupo-form">
+                <label for="tipo-ligacao">Classificar Ligação Como:</label>
+                <select id="tipo-ligacao">
+                    <option value="Personalizado">Personalizado</option>
+                    <option value="Imbricado">Imbricado</option>
+                    <option value="Concentrico">Concéntrico</option>
+                </select>
+            </div>
+            <hr>
+            <h3>Ferramentas de Desenho</h3>
+            <div class="grupo-form">
+                <label for="cor-desenho">Cor da Fase Atual</label>
+                <select id="cor-desenho">
+                    <option value="R">Fase R</option>
+                    <option value="S">Fase S</option>
+                    <option value="T">Fase T</option>
+                </select>
+            </div>
+            <button id="btn-exportar" class="btn btn-primario">EXPORTAR PNG</button>
+            <button id="btn-limpar" class="btn btn-perigo">LIMPAR DESENHO</button>
+        </div>
+
+        <div class="area-desenho">
+             <h2 id="titulo-diagrama">Diagrama Personalizado</h2>
+            <canvas id="canvas-bobinagem" width="700" height="700"></canvas>
+            <p id="status-message">Clique numa ranhura para iniciar uma ligação.</p>
+        </div>
+
+        <div class="painel" id="painel-info">
+            <div class="info-box">
+                <label>Paleta de Cores</label>
+                <div class="cores-container">
+                    <div class="cor-item"><span>R</span><input type="color" id="cor-r" value="#FF0000"></div>
+                    <div class="cor-item"><span>S</span><input type="color" id="cor-s" value="#008000"></div>
+                    <div class="cor-item"><span>T</span><input type="color" id="cor-t" value="#0000FF"></div>
+                </div>
+            </div>
+            <div class="info-box" id="info-box-calculos">
+                <label>Análise do Desenho</label>
+                <p id="info-defasagem-rs">R-S: --</p>
+                <p id="info-defasagem-rt">R-T: --</p>
+                <p id="info-ang-eletrico">Ângulo Elétrico/Ranhura: --</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="context-menu-bobina" class="context-menu">
+        <button id="btn-isolar-bobina">Ver Somente Esta</button>
+        <button id="btn-isolar-fase">Isolar Fase</button> <button id="btn-deletar-bobina">Deletar Bobina</button>
+        <hr>
+        <button id="btn-ver-todas">Ver Todas as Fases</button> </div>
+    <script src="script.js"></script>
+</body>
+</html>
